@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giỏ hàng – T1 SHOP</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+
+        img {
+            width: 80px;
+        }
+
+        button {
+            padding: 6px 12px;
+            cursor: pointer;
+        }
+
+        .qty-btn {
+            width: 32px;
+        }
+
+        .remove {
+            background: red;
+            color: white;
+            border: none;
+        }
+
+        #total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: right;
+        }
+
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .back-btn {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+        }
+
+        .checkout-btn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Giỏ hàng của bạn</h1>
+
+    <table id="cartTable">
+        <tr>
+            <th>Ảnh</th>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Thành tiền</th>
+            <th>Xóa</th>
+        </tr>
+    </table>
+
+    <div id="total"></div>
+
+    <div class="cart-actions">
+        <button class="back-btn" onclick="backToShop()">⬅ Thoát khỏi giỏ hàng</button>
+        <button class="checkout-btn" onclick="checkout()">Thanh toán</button>
+    </div>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let table = document.getElementById("cartTable");
+
+            let html = "";
+            let total = 0;
+
+            cart.forEach((item, i) => {
+
+                let price = Number(
+                    String(item.price).replace(/[^\d]/g, "")
+                );
+
+                let qty = Number(item.qty);
+                if (isNaN(qty) || qty < 1) {
+                    qty = 1;
+                    cart[i].qty = 1;
+                }
+
+                let subtotal = price * qty;
+                total += subtotal;
+
+                html += `
+                    <tr>
+                        <td><img src="${item.img}"></td>
+                        <td>${item.name}</td>
+                        <td>${price.toLocaleString()}₩</td>
+                        <td>
+                            <button class="qty-btn" onclick="changeQty(${i}, -1)">-</button>
+                            ${qty}
+                            <button class="qty-btn" onclick="changeQty(${i}, 1)">+</button>
+                        </td>
+                        <td>${subtotal.toLocaleString()}₩</td>
+                        <td>
+                            <button class="remove" onclick="removeItem(${i})">X</button>
+                        </td>
+                    </tr>
+                `;
+            });
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            table.innerHTML = `
+                <tr>
+                    <th>Ảnh</th>
+                    <th>Sản phẩm</th>
+                    <th>Giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                    <th>Xóa</th>
+                </tr>
+            ` + html;
+
+            document.getElementById("total").innerHTML =
+                "TỔNG TIỀN: " + total.toLocaleString() + "₩";
+        }
+
+        function changeQty(index, change) {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+
+            let currentQty = Number(cart[index].qty);
+            if (isNaN(currentQty) || currentQty < 1) {
+                currentQty = 1;
+            }
+
+            cart[index].qty = currentQty + change;
+
+            if (cart[index].qty < 1) {
+                cart[index].qty = 1;
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem("cart"));
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        function backToShop() {
+            window.location.href = "product.html";
+        }
+
+        loadCart();
+
+        function checkout() {
+            window.location.href = "success.html"; 
+        }
+    </script>
+
+</body>
+</html>
