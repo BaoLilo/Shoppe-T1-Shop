@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-header">
+    <button><</button>
+    <h2>Thanh toán</h2>
+</div>
+<div class="delivery-info">
+    <h2>Thông tin giao hàng</h2>
+    <span>Chỉnh sửa</span>
+    <p>Châu Gia Bảo</p>
+    <p>69/68 Đặng Thùy Trâm, P. 13, Q. Bình Thạnh</p>
+    <p>+84123456789</p>
+</div>
+<div class="order-items">
+    <h2>Cơm Tấm Sườn Bì - Ba Ghi</h2>
+    <div class="item">
+        <img src="img/comsuon.jpg">
+        <div class="details">
+            <p>Cơm sườn trứng ốp la</p>
+            <p>Sườn cốt lết, trứng</p>
+            <p>35.000đ</p>
+        </div>
+        <p>x1</p>
+    </div>
+    <div class="item">
+        <img src="img/combi.jpg">
+        <div class="details">
+            <p>Cơm tấm sườn</p>
+            <p>Sườn, bì, chả, trứng</p>
+            <p>45.000đ</p>
+        </div>
+        <p>x1</p>
+    </div>
+</div>
+<div class="note-section">
+    <p>Note:</p>
+    <input type="text" placeholder="Hãy để lại ghi chú ở đây...">
+</div>
+<div class="price-summary">
+    <p>Số lượng sản phẩm (2 món) <span>80.000đ</span></p>
+    <p>Phí vận chuyển <span>12.000đ</span></p>
+    <p>Giảm giá sản phẩm <span>-4.000đ</span></p>
+    <p>Giảm giá phí vận chuyển <span>-12.000đ</span></p>
+    <h3>Tổng <span>76.000đ</span></h3>
+</div>
+<div class="payment-method">
+    <p>Thêm voucher <span>Chọn voucher ></span></p>
+    <h3>Phương thức thanh toán</h3>
+    <div class="payment-option selected">
+        <img src="https://img.icons8.com/color/48/shopee.png" alt="ShopeePay">
+        <label for="shopeepay">Ví ShopeePay</label>
+        <input type="radio" name="payment" id="shopeepay" checked class="hidden-radio">
+    </div>
+    <div class="payment-option">
+        <img src="https://img.icons8.com/fluency/48/bank-building.png" alt="Bank">
+        <label for="bank">Tài khoản ngân hàng</label>
+        <input type="radio" name="payment" id="bank" class="hidden-radio">
+    </div>
+    <div class="payment-option">
+        <img src="https://img.icons8.com/fluency/48/cash-in-hand.png" alt="Cash">
+        <label for="cash">Thanh toán khi nhận hàng</label>
+        <input type="radio" name="payment" id="cash" class="hidden-radio">
+    </div>
+    <p class="more-options">7 lựa chọn khác ></p>
+</div>
+<div class="fixed-bottom-bar">
+    <button>Đặt đơn - 76.000đ</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
