@@ -1,0 +1,139 @@
+/* =========================================================
+   RESPONSIVE.CSS — Tablet & Mobile breakpoints
+   ========================================================= */
+
+/* ---------- Tablet ≤ 1024px ---------- */
+@media (max-width:1024px){
+
+  .cart-page,
+  .checkout-page{
+    grid-template-columns:1fr;
+  }
+
+  .summary-box{position:static;}
+
+  .footer-grid{
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+  }
+
+  .hero-slider{height:380px;}
+
+  .slide-content h1{font-size:34px;}
+}
+
+/* ---------- Tablet ≤ 900px ---------- */
+@media (max-width:900px){
+
+  .search-wrap{max-width:340px;}
+
+  .header-actions span.label{display:none;}
+}
+
+/* ---------- Mobile ≤ 768px ---------- */
+@media (max-width:768px){
+
+  .header-top{
+    flex-wrap:wrap;
+    padding:12px 0;
+  }
+
+  .search-wrap{
+    order:3;
+    max-width:100%;
+    flex-basis:100%;
+  }
+
+  .burger-toggle{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-left:auto;
+  }
+
+  .header-nav{
+    display:none;
+  }
+
+  .header-nav.open{
+    display:block;
+  }
+
+  .header-nav .container{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .header-actions{
+    gap:14px;
+  }
+
+  .hero-slider{height:320px;border-radius:0 0 18px 18px;}
+
+  .slide{padding:0 6%;}
+
+  .slide-content h1{font-size:26px;}
+  .slide-content p{font-size:14.5px;}
+
+  .slide-actions .btn{padding:11px 20px;font-size:14px;}
+
+  .slider-arrow{width:34px;height:34px;font-size:14px;}
+
+  .food-grid{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;}
+
+  .card .img-wrap{height:140px;}
+
+  .card-body{padding:12px;}
+  .card-body h3{font-size:14px;min-height:auto;}
+  .price-row .price-new{font-size:16px;}
+  .card-actions .btn{padding:8px 6px;font-size:12px;}
+
+  .section-title{font-size:20px;}
+
+  .flash-sale-head h2{font-size:19px;}
+
+  .restaurant-card{flex-direction:column;}
+  .restaurant-card img{width:100%;height:140px;}
+
+  .cart-header-row{display:none;}
+
+  .cart-item{
+    grid-template-columns:1fr;
+    gap:10px;
+    position:relative;
+    padding:16px;
+  }
+
+  .cart-item .remove-btn{
+    position:absolute;
+    top:16px;right:16px;
+  }
+
+  .auth-box{width:100%;padding:28px 22px;}
+
+  .footer-grid{grid-template-columns:1fr;text-align:center;}
+  .footer-social{justify-content:center;}
+
+  .voucher-input{flex-direction:column;}
+}
+
+/* ---------- Small mobile ≤ 480px ---------- */
+@media (max-width:480px){
+
+  .logo{font-size:21px;}
+
+  .slide-content .tag{font-size:11px;}
+  .slide-content h1{font-size:22px;}
+
+  .category-list{grid-template-columns:repeat(3,1fr);}
+  .category-item{padding:14px 6px;}
+  .category-item .emoji{font-size:24px;}
+  .category-item span{font-size:12px;}
+
+  .food-grid{grid-template-columns:repeat(2,1fr);}
+
+  .filter-bar{gap:6px;}
+  .filter-chip{padding:8px 14px;font-size:12.5px;}
+
+  .cart-toolbar{flex-direction:column;gap:10px;align-items:flex-start;}
+}

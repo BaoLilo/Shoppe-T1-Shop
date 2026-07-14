@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giỏ hàng — ShopeeFood</title>
+
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/responsive.css">
+<link rel="stylesheet" href="css/animation.css">
+<link rel="stylesheet" href="css/extra.css">
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loader-logo">Shopee<span style="color:#FFC400">Food</span></div>
+  <div class="loader-bag">🛍️</div>
+  <div class="loader-bar"></div>
+</div>
+
+<header class="site-header">
+  <div class="header-top">
+    <a href="index.html" class="logo">Shopee<span class="logo-dot">Food</span></a>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Tìm món ăn, quán ăn yêu thích...">
+      <button aria-label="Tìm kiếm">🔍</button>
+    </div>
+
+    <div class="header-actions">
+      <a href="voucher.html" class="action-item"><span>🎟️</span><span class="label">Voucher</span></a>
+      <a href="orders.html" class="action-item"><span>📦</span><span class="label">Đơn hàng</span></a>
+      <a href="cskh.html" class="action-item"><span>🎧</span><span class="label">CSKH</span></a>
+      <a href="cart.html" class="action-item cart-icon">🛒<span class="cart-badge">0</span></a>
+      <a href="login.html" class="action-item" id="auth-link"><span>👤</span><span class="label" id="auth-label">Đăng nhập</span></a>
+    </div>
+
+    <button class="burger-toggle" aria-label="Mở menu">☰</button>
+  </div>
+
+  <nav class="header-nav">
+    <div class="container">
+      <a href="index.html">Trang chủ</a>
+      <a href="menu.html">Thực đơn</a>
+      <a href="voucher.html">Voucher</a>
+      <a href="orders.html">Đơn hàng</a>
+      <a href="cskh.html">CSKH</a>
+      <a href="cart.html">Giỏ hàng</a>
+      <a href="login.html">Đăng nhập</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <h2 class="section-title" style="margin-top:30px;">🛒 Giỏ hàng của bạn</h2>
+
+    <div class="cart-page">
+
+      <!-- LEFT: cart table -->
+      <div>
+        <div class="cart-table-wrap" id="cart-table-wrap">
+
+          <div class="cart-toolbar">
+            <div class="checkbox-row">
+              <input type="checkbox" id="select-all">
+              <label for="select-all">Chọn tất cả</label>
+            </div>
+            <button class="btn btn-ghost btn-sm" id="clear-cart-btn">Xóa giỏ hàng</button>
+          </div>
+
+          <div class="cart-header-row">
+            <span></span>
+            <span>Món ăn</span>
+            <span>Giá</span>
+            <span>Số lượng</span>
+            <span>Thành tiền</span>
+            <span></span>
+          </div>
+
+          <div id="cart-body"><!-- rows injected by cart.js --></div>
+
+        </div>
+
+        <div class="cart-empty" id="cart-empty" style="display:none;">
+          <div class="icon">🛒</div>
+          <p>Giỏ hàng của bạn đang trống.</p>
+          <a href="menu.html" class="btn btn-primary">Đặt món ngay</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: summary -->
+      <div class="summary-box" id="summary-box">
+        <h3>Thông tin đơn hàng</h3>
+
+        <div class="voucher-input">
+          <input type="text" id="voucher-code" placeholder="Nhập mã giảm giá...">
+          <button class="btn btn-ghost btn-sm" id="apply-voucher-btn">Áp dụng</button>
+        </div>
+
+        <div class="summary-row">
+          <span>Tạm tính (<span id="summary-count">0</span> món)</span>
+          <span id="summary-subtotal">0đ</span>
+        </div>
+        <div class="summary-row">
+          <span>Phí vận chuyển</span>
+          <span id="summary-ship">0đ</span>
+        </div>
+        <div class="summary-row discount">
+          <span>Giảm giá</span>
+          <span id="summary-discount">-0đ</span>
+        </div>
+
+        <div class="summary-total">
+          <span>Tổng cộng</span>
+          <span class="amount" id="summary-total">0đ</span>
+        </div>
+
+        <button class="btn btn-primary btn-block" id="go-checkout-btn">Thanh toán</button>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">ShopeeFood</div>
+      <p>Nền tảng đặt món ăn trực tuyến nhanh chóng, tiện lợi, nhiều ưu đãi mỗi ngày.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="TikTok">🎵</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Về ShopeeFood</h4>
+      <a href="#">Giới thiệu</a>
+      <a href="#">Tuyển dụng</a>
+      <a href="#">Điều khoản dịch vụ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hỗ trợ khách hàng</h4>
+      <a href="cskh.html">Trung tâm trợ giúp</a>
+      <a href="cskh.html#contact-form">Liên hệ</a>
+      <a href="#">Chính sách bảo mật</a>
+    </div>
+    <div class="footer-col">
+      <h4>Liên hệ</h4>
+      <p>Email: support@shopeefood.vn</p>
+      <p>Hotline: 1900 1234</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    © 2026 ShopeeFood Demo — Dự án học tập, không phải sản phẩm thương mại thực tế.
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script src="js/support-widget.js"></script>
+<script src="js/search.js"></script>
+<script src="js/cart.js"></script>
+<!-- header search already wired via search.js -->
+
+</body>
+</html>
