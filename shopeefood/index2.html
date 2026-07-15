@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopeeFood — Đặt món ăn nhanh, ngon, giá tốt</title>
+
+<link rel="stylesheet" href="css2/style.css">
+<link rel="stylesheet" href="css2/responsive.css">
+<link rel="stylesheet" href="css2/animation.css">
+<link rel="stylesheet" href="css2/extra.css">
+</head>
+<body>
+
+<!-- ========== LOADING SCREEN ========== -->
+<div id="loading-screen">
+  <div class="loader-logo">Shopee<span style="color:#FFC400">Food</span></div>
+  <div class="loader-bag">🛍️</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- ========== HEADER ========== -->
+<header class="site-header">
+  <div class="header-top">
+    <a href="index2.html" class="logo">Shopee<span class="logo-dot">Food</span></a>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Tìm món ăn, quán ăn yêu thích...">
+      <button aria-label="Tìm kiếm">🔍</button>
+    </div>
+
+    <div class="header-actions">
+      <a href="voucher2.html" class="action-item"><span>🎟️</span><span class="label">Voucher</span></a>
+      <a href="orders2.html" class="action-item"><span>📦</span><span class="label">Đơn hàng</span></a>
+      <a href="cskh2.html" class="action-item"><span>🎧</span><span class="label">CSKH</span></a>
+      <a href="cart2.html" class="action-item cart-icon">🛒<span class="cart-badge">0</span></a>
+      <a href="login2.html" class="action-item" id="auth-link"><span>👤</span><span class="label" id="auth-label">Đăng nhập</span></a>
+    </div>
+
+    <button class="burger-toggle" aria-label="Mở menu">☰</button>
+  </div>
+
+  <nav class="header-nav">
+    <div class="container">
+      <a href="index2.html">Trang chủ</a>
+      <a href="menu2.html">Thực đơn</a>
+      <a href="voucher2.html">Voucher</a>
+      <a href="orders2.html">Đơn hàng</a>
+      <a href="cskh2.html">CSKH</a>
+      <a href="cart2.html">Giỏ hàng</a>
+      <a href="login2.html">Đăng nhập</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ========== HERO SLIDER ========== -->
+  <section class="hero-slider">
+
+    <div class="slide slide-1 active">
+      <div class="slide-content">
+        <span class="tag">🔥 Ưu đãi hôm nay</span>
+        <h1>Đặt món ăn yêu thích</h1>
+        <p>Giao nhanh 20 phút — Giá tốt mỗi ngày — Vô vàn ưu đãi hấp dẫn</p>
+        <div class="slide-actions">
+          <button class="btn btn-primary" onclick="scrollToSection('foods')">Đặt ngay</button>
+          <a href="menu2.html" class="btn btn-outline">Xem menu</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide slide-2">
+      <div class="slide-content">
+        <span class="tag">🍕 Flash Sale 12h trưa</span>
+        <h1>Giảm đến 40% toàn menu</h1>
+        <p>Áp dụng cho hàng trăm món ăn, số lượng có hạn mỗi ngày</p>
+        <div class="slide-actions">
+          <button class="btn btn-primary" onclick="scrollToSection('flash-sale')">Săn sale ngay</button>
+          <a href="menu2.html" class="btn btn-outline">Xem menu</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide slide-3">
+      <div class="slide-content">
+        <span class="tag">🚚 Miễn phí vận chuyển</span>
+        <h1>Freeship bán kính 5km</h1>
+        <p>Cho đơn hàng từ 150.000đ, áp dụng toàn bộ nhà hàng đối tác</p>
+        <div class="slide-actions">
+          <button class="btn btn-primary" onclick="scrollToSection('foods')">Khám phá ngay</button>
+          <a href="menu2.html" class="btn btn-outline">Xem menu</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="slider-arrow prev" aria-label="Slide trước">‹</button>
+    <button class="slider-arrow next" aria-label="Slide sau">›</button>
+    <div class="slider-dots"></div>
+  </section>
+
+  <div class="container">
+
+    <!-- ========== FLASH SALE ========== -->
+    <section class="flash-sale reveal" id="flash-sale">
+      <div class="flash-sale-head">
+        <h2><span class="pulse-dot"></span> Flash Sale hôm nay</h2>
+        <div class="countdown">
+          <span class="box" id="fs-h">02</span>:
+          <span class="box" id="fs-m">45</span>:
+          <span class="box" id="fs-s">30</span>
+        </div>
+      </div>
+
+      <div class="flash-scroll">
+
+        <div class="card" style="min-width:250px;" data-category="pizza">
+          <div class="img-wrap">
+            <img src="img2/Pizzahs.jpg" alt="Pizza Hải Sản">
+            <span class="badge sale">-16%</span>
+            <button class="fav-btn" data-name="Pizza Hải Sản">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Pizza Hải Sản</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.7 · Đã bán 860</div>
+            <div class="price-row">
+              <span class="price-new">159.000đ</span>
+              <span class="price-old">189.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Pizza Hải Sản',159000,'img2/Pizzahs.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="min-width:250px;" data-category="douong">
+          <div class="img-wrap">
+            <img src="img2/f5.jpg" alt="Trà Sữa Trân Châu">
+            <span class="badge sale">-13%</span>
+            <button class="fav-btn" data-name="Trà Sữa Trân Châu">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Trà Sữa Trân Châu</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.6 · Đã bán 3.000</div>
+            <div class="price-row">
+              <span class="price-new">39.000đ</span>
+              <span class="price-old">45.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Trà Sữa Trân Châu',39000,'img2/f5.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="min-width:250px;" data-category="sushi">
+          <div class="img-wrap">
+            <img src="img2/f3.jpg" alt="Sushi Tổng Hợp">
+            <span class="badge sale">-18%</span>
+            <button class="fav-btn" data-name="Sushi Tổng Hợp">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Sushi Tổng Hợp</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.8 · Đã bán 430</div>
+            <div class="price-row">
+              <span class="price-new">135.000đ</span>
+              <span class="price-old">165.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Sushi Tổng Hợp',135000,'img2/f3.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="min-width:250px;" data-category="garan">
+          <div class="img-wrap">
+            <img src="img2/f4.jpg" alt="Gà Rán Sốt Cay">
+            <span class="badge sale">-15%</span>
+            <button class="fav-btn" data-name="Gà Rán Sốt Cay">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Gà Rán Sốt Cay</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.7 · Đã bán 720</div>
+            <div class="price-row">
+              <span class="price-new">89.000đ</span>
+              <span class="price-old">105.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Gà Rán Sốt Cay',89000,'img2/f4.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== DANH MỤC ========== -->
+    <section class="category reveal">
+      <h2 class="section-title">Danh mục món ăn</h2>
+
+      <div class="category-list">
+        <a href="menu2.html#burger" class="category-item"><div class="emoji">🍔</div><span>Burger</span></a>
+        <a href="menu2.html#pizza" class="category-item"><div class="emoji">🍕</div><span>Pizza</span></a>
+        <a href="menu2.html#garan" class="category-item"><div class="emoji">🍗</div><span>Gà rán</span></a>
+        <a href="menu2.html#com" class="category-item"><div class="emoji">🍜</div><span>Cơm/Mì</span></a>
+        <a href="menu2.html#douong" class="category-item"><div class="emoji">🧋</div><span>Trà sữa</span></a>
+        <a href="menu2.html#sushi" class="category-item"><div class="emoji">🍣</div><span>Sushi</span></a>
+      </div>
+    </section>
+
+    <!-- ========== MÓN ĂN NỔI BẬT ========== -->
+    <section class="foods" id="foods">
+      <h2 class="section-title reveal">Món ăn nổi bật</h2>
+
+      <div class="food-grid">
+
+        <div class="card" data-category="burger">
+          <div class="img-wrap">
+            <img src="img2/f6.webp" alt="Burger Bò Phô Mai">
+            <span class="badge best">Best Seller</span>
+            <button class="fav-btn" data-name="Burger Bò Phô Mai">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Burger Bò Phô Mai</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.8 · Đã bán 1.200</div>
+            <div class="price-row">
+              <span class="price-new">79.000đ</span>
+              <span class="price-old">99.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Burger Bò Phô Mai',79000,'img2/f6.webp')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-category="pizza">
+          <div class="img-wrap">
+            <img src="img2/Pizzahs.jpg" alt="Pizza Hải Sản">
+            <span class="badge sale">Sale</span>
+            <button class="fav-btn" data-name="Pizza Hải Sản">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Pizza Hải Sản</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.7 · Đã bán 860</div>
+            <div class="price-row">
+              <span class="price-new">159.000đ</span>
+              <span class="price-old">189.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Pizza Hải Sản',159000,'img2/Pizzahs.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-category="garan">
+          <div class="img-wrap">
+            <img src="img2/Ga.jpg" alt="Gà Rán Giòn">
+            <span class="badge best">Best Seller</span>
+            <button class="fav-btn" data-name="Gà Rán Giòn">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Gà Rán Giòn</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.9 · Đã bán 2.100</div>
+            <div class="price-row">
+              <span class="price-new">99.000đ</span>
+              <span class="price-old">119.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Gà Rán Giòn',99000,'img2/Ga.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-category="douong">
+          <div class="img-wrap">
+            <img src="img2/f5.jpg" alt="Trà Sữa Trân Châu">
+            <span class="badge sale">Sale</span>
+            <button class="fav-btn" data-name="Trà Sữa Trân Châu">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Trà Sữa Trân Châu</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.6 · Đã bán 3.000</div>
+            <div class="price-row">
+              <span class="price-new">39.000đ</span>
+              <span class="price-old">45.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Trà Sữa Trân Châu',39000,'img2/f5.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-category="com">
+          <div class="img-wrap">
+            <img src="img2/micay.webp" alt="Mì Cay Hải Sản">
+            <span class="badge hot">Hot</span>
+            <button class="fav-btn" data-name="Mì Cay Hải Sản">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Mì Cay Hải Sản</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.5 · Đã bán 540</div>
+            <div class="price-row">
+              <span class="price-new">69.000đ</span>
+              <span class="price-old">89.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Mì Cay Hải Sản',69000,'img2/micay.webp')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" data-category="sushi">
+          <div class="img-wrap">
+            <img src="img2/f3.jpg" alt="Sushi Tổng Hợp">
+            <span class="badge sale">Sale</span>
+            <button class="fav-btn" data-name="Sushi Tổng Hợp">♡</button>
+          </div>
+          <div class="card-body">
+            <h3>Sushi Tổng Hợp</h3>
+            <div class="rating-row"><span class="stars">★★★★★</span> 4.8 · Đã bán 430</div>
+            <div class="price-row">
+              <span class="price-new">135.000đ</span>
+              <span class="price-old">165.000đ</span>
+            </div>
+            <div class="card-actions">
+              <button class="btn btn-primary" onclick="addToCart('Sushi Tổng Hợp',135000,'img2/f3.jpg')">Thêm vào giỏ</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== NHÀ HÀNG NỔI TIẾNG ========== -->
+    <section class="restaurants reveal">
+      <h2 class="section-title">Nhà hàng nổi bật</h2>
+
+      <div class="restaurant-grid">
+
+        <div class="restaurant-card">
+          <img src="img2/f1.jpg" alt="Nhà hàng Teriyaki House">
+          <div class="restaurant-info">
+            <h4>Teriyaki House</h4>
+            <p>⭐ 4.8 (2.3k đánh giá) · 1.2km</p>
+            <p>Chuyên món Nhật — Cơm gà, mì, đồ nướng</p>
+          </div>
+        </div>
+
+        <div class="restaurant-card">
+          <img src="img2/Ga.jpg" alt="Nhà hàng Gà Giòn Phố">
+          <div class="restaurant-info">
+            <h4>Gà Giòn Phố</h4>
+            <p>⭐ 4.9 (4.1k đánh giá) · 0.8km</p>
+            <p>Chuyên gà rán Hàn Quốc, sốt cay đặc trưng</p>
+          </div>
+        </div>
+
+        <div class="restaurant-card">
+          <img src="img2/f3.jpg" alt="Nhà hàng Sushi Ocean">
+          <div class="restaurant-info">
+            <h4>Sushi Ocean</h4>
+            <p>⭐ 4.7 (1.5k đánh giá) · 2.4km</p>
+            <p>Sushi, sashimi tươi mỗi ngày</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== ƯU ĐÃI HÔM NAY ========== -->
+    <section class="voucher-section reveal">
+      <h2 class="section-title">Ưu đãi hôm nay</h2>
+
+      <div class="voucher-grid">
+        <div class="voucher-card">
+          <div class="voucher-icon">🔥</div>
+          <div class="voucher-body">
+            <h4>Giảm 30% cho đơn từ 150.000đ</h4>
+            <p>Áp dụng mã <strong>SALE10</strong> tại trang giỏ hàng</p>
+            <button>Sao chép mã</button>
+          </div>
+        </div>
+
+        <div class="voucher-card">
+          <div class="voucher-icon">🚚</div>
+          <div class="voucher-body">
+            <h4>Miễn phí giao hàng bán kính 5km</h4>
+            <p>Áp dụng mã <strong>FREESHIP</strong> tại trang giỏ hàng</p>
+            <button>Sao chép mã</button>
+          </div>
+        </div>
+
+        <div class="voucher-card">
+          <div class="voucher-icon">🎁</div>
+          <div class="voucher-body">
+            <h4>Giảm ngay 20.000đ hóa đơn</h4>
+            <p>Áp dụng mã <strong>SALE20K</strong> tại trang giỏ hàng</p>
+            <button>Sao chép mã</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEEDBACK ========== -->
+    <section class="feedback-section reveal">
+      <h2 class="section-title">Khách hàng nói gì?</h2>
+
+      <div class="feedback-scroll">
+
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>"Giao hàng siêu nhanh, món ăn còn nóng hổi. Sẽ ủng hộ tiếp!"</p>
+          <div class="feedback-user">
+            <div class="avatar-circle">M</div>
+            <div>
+              <h5>Minh Anh</h5>
+              <span>Khách hàng thân thiết</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>Ứng dụng dễ dùng, nhiều voucher hấp dẫn mỗi ngày, giá hợp lý.</p>
+          <div class="feedback-user">
+            <div class="avatar-circle">T</div>
+            <div>
+              <h5>Thanh Tùng</h5>
+              <span>Đã đặt 45 đơn</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feedback-card">
+          <div class="stars">★★★★★</div>
+          <p>Đồ ăn ngon, đóng gói cẩn thận, chăm sóc khách hàng tốt.</p>
+          <div class="feedback-user">
+            <div class="avatar-circle">H</div>
+            <div>
+              <h5>Hải Yến</h5>
+              <span>Khách hàng mới</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+</main>
+
+<!-- ========== FOOTER ========== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <div class="footer-col">
+      <div class="footer-logo">ShopeeFood</div>
+      <p>Nền tảng đặt món ăn trực tuyến nhanh chóng, tiện lợi, nhiều ưu đãi mỗi ngày.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">📘</a>
+        <a href="#" aria-label="Instagram">📷</a>
+        <a href="#" aria-label="TikTok">🎵</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Về ShopeeFood</h4>
+      <a href="#">Giới thiệu</a>
+      <a href="#">Tuyển dụng</a>
+      <a href="#">Điều khoản dịch vụ</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Hỗ trợ khách hàng</h4>
+      <a href="cskh2.html">Trung tâm trợ giúp</a>
+      <a href="cskh2.html#contact-form">Liên hệ</a>
+      <a href="#">Chính sách bảo mật</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Liên hệ</h4>
+      <p>Email: support@shopeefood.vn</p>
+      <p>Hotline: 1900 1234</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom container">
+    © 2026 ShopeeFood Demo — Dự án học tập, lấy cảm hứng từ Shopee/ShopeeFood, không phải sản phẩm thương mại thực tế.
+  </div>
+</footer>
+
+<script src="js2/script.js"></script>
+<script src="js2/support-widget.js"></script>
+<script src="js2/slider.js"></script>
+<script src="js2/search.js"></script>
+<script>
+// Simple flash-sale countdown (resets daily loop for demo purposes)
+(function(){
+  let h = 2, m = 45, s = 30;
+  const hEl = document.getElementById("fs-h");
+  const mEl = document.getElementById("fs-m");
+  const sEl = document.getElementById("fs-s");
+
+  setInterval(()=>{
+    if(s === 0){
+      if(m === 0){
+        if(h === 0){ h=2; m=45; s=30; }
+        else{ h--; m=59; s=59; }
+      }else{ m--; s=59; }
+    }else{ s--; }
+
+    hEl.textContent = String(h).padStart(2,"0");
+    mEl.textContent = String(m).padStart(2,"0");
+    sEl.textContent = String(s).padStart(2,"0");
+  }, 1000);
+})();
+</script>
+
+</body>
+</html>

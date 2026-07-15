@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chăm sóc khách hàng — ShopeeFood</title>
+
+<link rel="stylesheet" href="css2/style.css">
+<link rel="stylesheet" href="css2/responsive.css">
+<link rel="stylesheet" href="css2/animation.css">
+<link rel="stylesheet" href="css2/extra.css">
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loader-logo">Shopee<span style="color:#FFC400">Food</span></div>
+  <div class="loader-bag">🛍️</div>
+  <div class="loader-bar"></div>
+</div>
+
+<header class="site-header">
+  <div class="header-top">
+    <a href="index2.html" class="logo">Shopee<span class="logo-dot">Food</span></a>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Tìm món ăn, quán ăn yêu thích...">
+      <button aria-label="Tìm kiếm">🔍</button>
+    </div>
+
+    <div class="header-actions">
+      <a href="voucher2.html" class="action-item"><span>🎟️</span><span class="label">Voucher</span></a>
+      <a href="orders2.html" class="action-item"><span>📦</span><span class="label">Đơn hàng</span></a>
+      <a href="cskh2.html" class="action-item"><span>🎧</span><span class="label">CSKH</span></a>
+      <a href="cart2.html" class="action-item cart-icon">🛒<span class="cart-badge">0</span></a>
+      <a href="login2.html" class="action-item" id="auth-link"><span>👤</span><span class="label" id="auth-label">Đăng nhập</span></a>
+    </div>
+
+    <button class="burger-toggle" aria-label="Mở menu">☰</button>
+  </div>
+
+  <nav class="header-nav">
+    <div class="container">
+      <a href="index2.html">Trang chủ</a>
+      <a href="menu2.html">Thực đơn</a>
+      <a href="voucher2.html">Voucher</a>
+      <a href="orders2.html">Đơn hàng</a>
+      <a href="cskh2.html">CSKH</a>
+      <a href="cart2.html">Giỏ hàng</a>
+      <a href="login2.html">Đăng nhập</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <h2 class="section-title" style="margin-top:30px;">🎧 Chăm sóc khách hàng</h2>
+    <p class="page-subtitle">Giải đáp thắc mắc nhanh hoặc gửi yêu cầu, đội ngũ CSKH sẽ liên hệ lại trong 24h.</p>
+
+    <!-- ========== QUICK CONTACT CARDS ========== -->
+    <section class="cskh-quick-grid reveal">
+
+      <a href="tel:19001234" class="cskh-quick-card">
+        <div class="cskh-quick-icon">📞</div>
+        <h4>Hotline</h4>
+        <p>1900 1234 <span class="cskh-quick-note">(24/7)</span></p>
+      </a>
+
+      <a href="mailto:support@shopeefood.vn" class="cskh-quick-card">
+        <div class="cskh-quick-icon">✉️</div>
+        <h4>Email</h4>
+        <p>support@shopeefood.vn</p>
+      </a>
+
+      <div class="cskh-quick-card" id="quick-live-status">
+        <div class="cskh-quick-icon">💬</div>
+        <h4>Chat trực tuyến</h4>
+        <p>Bấm nút 🎧 góc màn hình</p>
+      </div>
+
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="cskh-faq-section reveal">
+      <h3 class="subsection-title">Câu hỏi thường gặp</h3>
+
+      <div class="faq-list" id="faq-list">
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Làm sao để theo dõi đơn hàng của tôi?</span>
+            <span class="faq-caret">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Đăng nhập tài khoản, sau đó vào mục <strong>Đơn hàng</strong> trên thanh điều hướng để xem trạng thái và chi tiết các đơn đã đặt.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Tôi có thể hủy hoặc đổi đơn hàng đã đặt không?</span>
+            <span class="faq-caret">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Vui lòng liên hệ hotline 1900 1234 trong vòng 5 phút sau khi đặt để được hỗ trợ hủy hoặc thay đổi đơn hàng.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Mã giảm giá (voucher) áp dụng như thế nào?</span>
+            <span class="faq-caret">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Xem toàn bộ mã đang có tại trang <strong>Voucher</strong>, sao chép mã hoặc bấm "Áp dụng vào giỏ hàng" để tự động điền tại trang giỏ hàng. Một số mã chỉ dành cho thành viên đã đăng nhập.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Phí vận chuyển được tính như thế nào?</span>
+            <span class="faq-caret">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Phí vận chuyển tiêu chuẩn là 15.000đ. Đơn hàng từ 150.000đ trở lên hoặc dùng mã FREESHIP sẽ được miễn phí vận chuyển.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Có những phương thức thanh toán nào?</span>
+            <span class="faq-caret">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>ShopeeFood hỗ trợ thanh toán khi nhận hàng (COD), ví ShopeePay, ví MoMo và chuyển khoản qua VNPay.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button type="button" class="faq-question">
+            <span>Tôi quên mật khẩu, phải làm sao?</span>
+            <span class="faq-caret">▾</span>
+          </button>
+          <div class="faq-answer">
+            <p>Tại trang Đăng nhập, chọn <strong>Quên mật khẩu?</strong> hoặc liên hệ CSKH qua form bên dưới để được hỗ trợ khôi phục.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== CONTACT FORM ========== -->
+    <section class="cskh-contact-section reveal" id="contact-form">
+      <h3 class="subsection-title">Gửi yêu cầu hỗ trợ</h3>
+
+      <div class="cskh-contact-box">
+        <form id="cskh-form" novalidate>
+
+          <div class="field">
+            <label for="cskh-name">Họ và tên</label>
+            <input type="text" id="cskh-name" placeholder="Nguyễn Văn A" required>
+            <span class="error-msg">Vui lòng nhập họ và tên.</span>
+          </div>
+
+          <div class="field">
+            <label for="cskh-contact">Email hoặc số điện thoại</label>
+            <input type="text" id="cskh-contact" placeholder="email@vidu.com hoặc 09xxxxxxxx" required>
+            <span class="error-msg">Vui lòng nhập email hoặc số điện thoại hợp lệ.</span>
+          </div>
+
+          <div class="field">
+            <label for="cskh-topic">Chủ đề</label>
+            <select id="cskh-topic">
+              <option value="Đơn hàng">Vấn đề về đơn hàng</option>
+              <option value="Thanh toán">Vấn đề thanh toán</option>
+              <option value="Voucher">Voucher / khuyến mãi</option>
+              <option value="Tài khoản">Tài khoản đăng nhập</option>
+              <option value="Khác">Khác</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="cskh-message">Nội dung</label>
+            <textarea id="cskh-message" rows="4" placeholder="Mô tả vấn đề bạn đang gặp phải..." required></textarea>
+            <span class="error-msg">Vui lòng nhập nội dung yêu cầu.</span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">Gửi yêu cầu</button>
+
+        </form>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">ShopeeFood</div>
+      <p>Nền tảng đặt món ăn trực tuyến nhanh chóng, tiện lợi, nhiều ưu đãi mỗi ngày.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Về ShopeeFood</h4>
+      <a href="#">Giới thiệu</a>
+      <a href="#">Điều khoản dịch vụ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hỗ trợ khách hàng</h4>
+      <a href="cskh2.html">Trung tâm trợ giúp</a>
+      <a href="cskh2.html#contact-form">Liên hệ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Liên hệ</h4>
+      <p>Email: support@shopeefood.vn</p>
+      <p>Hotline: 1900 1234</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    © 2026 ShopeeFood Demo — Dự án học tập, không phải sản phẩm thương mại thực tế.
+  </div>
+</footer>
+
+<script src="js2/script.js"></script>
+<script src="js2/support-widget.js"></script>
+<script src="js2/search.js"></script>
+<script src="js2/cskh.js"></script>
+</body>
+</html>

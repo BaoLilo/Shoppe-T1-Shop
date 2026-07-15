@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Sản phẩm - T1 SHOP</title>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Arial, sans-serif; background: #f5f5f5; }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background: white;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .header-left { display: flex; align-items: center; }
+        .logo { width: 48px; margin-right: 25px; }
+
+        nav a {
+            text-decoration: none;
+            margin-right: 25px;
+            font-size: 17px;
+            font-weight: bold;
+            color: black;
+        }
+        nav a:hover { color: red; }
+
+        .product-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(0,0,0,0.12);
+            transition: 0.2s;
+        }
+
+        .product:hover {
+            transform: scale(1.04);
+        }
+
+        .product img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .product-name { margin: 10px 0; font-size: 15px; font-weight: bold; }
+        .product-price { color: red; font-size: 16px; }
+
+        .popup-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .popup-box {
+            width: 420px;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            animation: show 0.3s ease;
+        }
+
+        @keyframes show {
+            from { transform: scale(0.6); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .popup-name { margin: 15px 0 5px; font-size: 20px; font-weight: bold; }
+        .popup-price { color: red; font-size: 22px; margin-bottom: 10px; }
+        .popup-desc { color: #333; margin-bottom: 20px; }
+
+        .btn {
+            padding: 12px 18px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 6px;
+            margin: 5px;
+        }
+        .add-cart { background: #ff3333; color: white; }
+        .buy-now { background: #111; color: white; }
+        .close-popup {
+            background: #777;
+            color: white;
+        }
+
+        .footer {
+            background: #111;
+            color: #ddd;
+            padding: 40px 60px;
+            margin-top: 40px;
+            display: grid;
+            grid-template-columns: 180px 1fr 420px;
+            gap: 50px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            background: #0d0d0d;
+            padding: 12px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="header-left">
+            <img src="images1/Logo.png" class="logo">
+            <nav>
+                <a href="index1.html">Trang chủ</a>
+                <a href="product1.html">Sản phẩm</a>
+                <a href="sale1.html">Sale</a>
+                <a href="magazine1.html">Magazine</a>
+                <a href="ai1.html">Q&A</a>
+            </nav>
+        </div>
+
+        <div class="header-right">
+            <a href="cart1.html" class="icon" style="font-size:22px;">🛒</a>
+        </div>
+    </header>
+
+    <div class="product-container">
+
+        <div class="product" onclick="openPopup('T1 ATI Plush','26000₩','T1 ATI Plush cực xịn','images1/T1 ATI Plush.png')">
+            <img src="images1/T1 ATI Plush.png">
+            <div class="product-name">T1 ATI Plush</div>
+            <div class="product-price">26,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Uniform Jersey','129,000₩','Áo thi đấu 6 sao 2025 chính hãng','images1/2025 T1 World Champions Uniform Jersey.png')">
+            <img src="images1/2025 T1 World Champions Uniform Jersey.png">
+            <div class="product-name">2025 T1 World Champions Uniform Jersey</div>
+            <div class="product-price">129,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Uniform Jacket','189,000₩','Áo khoác 6 sao 2025 chính hãng','images1/2025 T1 World Champions Uniform Jacket.png')">
+            <img src="images1/2025 T1 World Champions Uniform Jacket.png">
+            <div class="product-name">2025 T1 World Champions Uniform Jacket</div>
+            <div class="product-price">189,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions DIY KIT','12,000₩','DIY Marking KIT tên tuyển thủ chính hãng','images1/2025 T1 World Champions DIY KIT.png')">
+            <img src="images1/2025 T1 World Champions DIY KIT.png">
+            <div class="product-name">2025 T1 World Champions DIY KIT</div>
+            <div class="product-price">12,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Artisan Keycap','125,000₩','T1 World Champions Artisan Keycap cực xịn','images1/2025 T1 World Champions Artisan Keycap.png')">
+            <img src="images1/2025 T1 World Champions Artisan Keycap.png">
+            <div class="product-name">2025 T1 World Champions Artisan Keycap</div>
+            <div class="product-price">125,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 Logo Badge - V6 World Champions Edition','10,000₩','Logo T1 6 sao cực đẹp','images1/T1 Logo Badge - V6 World Champions Edition.png')">
+            <img src="images1/T1 Logo Badge - V6 World Champions Edition.png">
+            <div class="product-name">T1 Logo Badge - V6 World Champions Edition</div>
+            <div class="product-price">10,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions T-Shirt','45,000₩','Áo thun T1 World Champions','images1/2025 T1 World Champions T-Shirt.png')">
+            <img src="images1/2025 T1 World Champions T-Shirt.png">
+            <div class="product-name">2025 T1 World Champions T-Shirt</div>
+            <div class="product-price">45,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Badge','12,000₩','Huy hiệu T1 World Champions','images1/2025 T1 World Champions Badge.png')">
+            <img src="images1/2025 T1 World Champions Badge.png">
+            <div class="product-name">2025 T1 World Champions Badge</div>
+            <div class="product-price">12,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Keychain','28,000₩','Móc khóa T1 World Champions','images1/2025 T1 World Champions Keychain.png')">
+            <img src="images1/2025 T1 World Champions Keychain.png">
+            <div class="product-name">2025 T1 World Champions Keychain</div>
+            <div class="product-price">28,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Muffler','36,000₩','Khăn choàng T1 World Champions','images1/2025 T1 World Champions Muffler.png')">
+            <img src="images1/2025 T1 World Champions Muffler.png">
+            <div class="product-name">2025 T1 World Champions Muffler</div>
+            <div class="product-price">36,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Ball Cap','40,000₩','Nón T1 World Champions','images1/2025 T1 World Champions Ball Cap.png')">
+            <img src="images1/2025 T1 World Champions Ball Cap.png">
+            <div class="product-name">2025 T1 World Champions Ball Cap</div>
+            <div class="product-price">40,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Keycap Keychain','28,000₩','Móc khóa T1 World Champions Keycap','images1/2025 T1 World Champions Keycap Keychain.png')">
+            <img src="images1/2025 T1 World Champions Keycap Keychain.png">
+            <div class="product-name">2025 T1 World Champions Keycap Keychain</div>
+            <div class="product-price">28,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 Official Light Stick','75,000₩','Light Stick chính hãng cực xịn','images1/T1 Official Light Stick.png')">
+            <img src="images1/T1 Official Light Stick.png">
+            <div class="product-name">T1 Official Light Stick</div>
+            <div class="product-price">75,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 ATI Headband','16,000₩','cài tóc T1 ATI cực xịn','images1/T1 ATI Headband.png')">
+            <img src="images1/T1 ATI Headband.png">
+            <div class="product-name">T1 ATI Headband</div>
+            <div class="product-price">16,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 Worlds Mouse Pad','16,000₩','Lót chuột T1 Worlds','images1/2025 T1 Worlds Mouse Pad.png')">
+            <img src="images1/2025 T1 Worlds Mouse Pad.png">
+            <div class="product-name">2025 T1 Worlds Mouse Pad</div>
+            <div class="product-price">16,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 ATI Umbrella','26,000₩','Dù T1 ATI','images1/T1 ATI Umbrella.png')">
+            <img src="images1/T1 ATI Umbrella.png">
+            <div class="product-name">T1 ATI Umbrella</div>
+            <div class="product-price">26,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 Logo Backpack','85,000₩','Balo có logo T1','images1/T1 Logo Backpack.png')">
+            <img src="images1/T1 Logo Backpack.png">
+            <div class="product-name">T1 Logo Backpack</div>
+            <div class="product-price">85,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 Animal Friends Eye Mask','16,000₩','Bịt mắt T1 Animal Friends','images1/T1 Animal Friends Eye Mask.png')">
+            <img src="images1/T1 Animal Friends Eye Mask.png">
+            <div class="product-name">T1 Animal Friends Eye Mask</div>
+            <div class="product-price">16,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 Animal Friends Acrylic Keychain -T1 Fighting','6,000₩','Móc khóa T1 Animal Friends Acrylic','images1/T1 Animal Friends Acrylic Keychain -T1 Fighting.png')">
+            <img src="images1/T1 Animal Friends Acrylic Keychain -T1 Fighting.png">
+            <div class="product-name">T1 Animal Friends Acrylic Keychain -T1 Fighting</div>
+            <div class="product-price">6,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 Pentakill Keychain - Faker','12,000₩','Móc khóa T1 Pentakill Keychain - Faker','images1/2025 T1 Pentakill Keychain - Faker.png')">
+            <img src="images1/2025 T1 Pentakill Keychain - Faker.png">
+            <div class="product-name">2025 T1 Pentakill Keychain - Faker</div>
+            <div class="product-price">12,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 Pentakill Keychain - Oner','12,000₩','Móc khóa T1 Pentakill Keychain - Oner','images1/2025 T1 Pentakill Keychain - Oner.png')">
+            <img src="images1/2025 T1 Pentakill Keychain - Oner.png">
+            <div class="product-name">2025 T1 Pentakill Keychain - Oner</div>
+            <div class="product-price">12,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Uniform Jersey Keychain','20,000₩','Móc khóa T1 World Champions Uniform Jersey','images1/2025 T1 World Champions Uniform Jersey Keychain.png')">
+            <img src="images1/2025 T1 World Champions Uniform Jersey Keychain.png">
+            <div class="product-name">2025 T1 World Champions Uniform Jersey Keychain</div>
+            <div class="product-price">20,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('T1 Champion Legacy Badge Set - V6 Edition','50,000₩','Huy hiệu T1 Champion Legacy','images1/T1 Champion Legacy Badge Set - V6 Edition.png')">
+            <img src="images1/T1 Champion Legacy Badge Set - V6 Edition.png">
+            <div class="product-name">T1 Champion's Legacy Badge Set - V6 Edition</div>
+            <div class="product-price">50,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 Player Plushie','42,000₩','Gấu bông T1 Player','images1/2025 T1 Player plushie.png')">
+            <img src="images1/2025 T1 Player plushie.png">
+            <div class="product-name">2025 T1 Player Plushie</div>
+            <div class="product-price">42,000₩</div>
+        </div>
+
+        <div class="product" onclick="openPopup('2025 T1 World Champions Plush Uniform Set','50,000₩','Quần áo thú bông T1 World Champions','images1/2025 T1 World Champions Plush Uniform Set.png')">
+            <img src="images1/2025 T1 World Champions Plush Uniform Set.png">
+            <div class="product-name">2025 T1 World Champions Plush Uniform Set</div>
+            <div class="product-price">50,000₩</div>
+        </div>
+
+    </div>
+
+    <div class="popup-bg" id="popup">
+        <div class="popup-box">
+            <img id="pImg" class="popup-img">
+            <div id="pName" class="popup-name"></div>
+            <div id="pPrice" class="popup-price"></div>
+            <div id="pDesc" class="popup-desc"></div>
+
+            <button class="btn add-cart" onclick="addToCart()">Thêm vào giỏ hàng</button>
+            <button class="btn close-popup" onclick="closePopup()">Đóng</button>
+        </div>
+    </div>
+
+    <script>
+        let currentProduct = {};
+
+        function openPopup(name, price, desc, img) {
+            currentProduct = { name, price, desc, img };
+
+            document.getElementById("pName").innerText = name;
+            document.getElementById("pPrice").innerText = price;
+            document.getElementById("pDesc").innerText = desc;
+            document.getElementById("pImg").src = img;
+
+            document.getElementById("popup").style.display = "flex";
+        }
+
+        function closePopup() {
+            document.getElementById("popup").style.display = "none";
+        }
+
+        function addToCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.push(currentProduct);
+            localStorage.setItem("cart", JSON.stringify(cart));
+
+            alert("Đã thêm vào giỏ hàng!");
+        }
+    </script>
+
+
+<div class="footer">
+
+    <div class="footer-column">
+        <img src="images1/Logo.png" style="width:140px;">
+    </div>
+
+    <div class="footer-column">
+        Tên công ty: Công ty TNHH fan T1<br>
+        Địa chỉ: 69/68 Đ. Đặng Thuỳ Trâm, Phường 13, Bình Thạnh, TP.HCM<br>
+        Số đăng kí kinh doanh: 0123456789<br>
+        Nhân viên: Nguyễn Trần Khôi Vĩ, Trần Quán Hy, Vũ Quốc Huy, Châu Gia Bảo
+    </div>
+
+    <div class="footer-column info-box">
+        <b>Liên hệ & Thời gian làm việc</b><br>
+
+        • Điện thoại: 028 7105 9999<br>
+        • Gmail: shop@t1.gg<br><br>
+
+        • Mở cửa: 10:00 ~ 19:00<br>
+        • Nghỉ: 12:00 ~ 13:00<br>
+        • Đóng cửa: Thứ 7, CN & ngày lễ
+    </div>
+
+</div>
+
+    <div class="footer-bottom">
+        COPYRIGHT ⓒ 2025 T1 SHOP. ALL RIGHTS RESERVED.
+    </div>
+
+</body>
+</html>

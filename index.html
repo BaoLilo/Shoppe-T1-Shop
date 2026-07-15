@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal — ShopeeFood × T1 Store</title>
+<style>
+  :root{
+    --sf-orange:#FF5722;
+    --sf-yellow:#FFC400;
+    --sf-dark:#2b1400;
+    --t1-red:#e2012d;
+    --t1-black:#0a0a0a;
+    --t1-grey:#1b1b1b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{height:100%;}
+  body{
+    font-family:'Segoe UI', system-ui, -apple-system, sans-serif;
+    overflow:hidden;
+    background:#000;
+  }
+  .split-wrap{
+    position:relative;
+    display:flex;
+    width:100%;
+    height:100vh;
+  }
+  .panel{
+    position:relative;
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    overflow:hidden;
+    transition:flex 0.6s cubic-bezier(.22,1,.36,1);
+    cursor:pointer;
+  }
+  .split-wrap:hover .panel.dim{ flex:0.8; }
+  .split-wrap .panel:hover{ flex:1.35; }
+
+  /* --- ShopeeFood panel --- */
+  .panel.shopeefood{
+    background:
+      radial-gradient(circle at 30% 20%, rgba(255,196,0,0.35), transparent 55%),
+      linear-gradient(160deg, var(--sf-dark) 0%, #401d00 45%, var(--sf-orange) 130%);
+  }
+  .panel.shopeefood::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image:
+      radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1.4px);
+    background-size: 26px 26px;
+    opacity:0.5;
+  }
+
+  /* --- T1 panel --- */
+  .panel.t1{
+    background:
+      radial-gradient(circle at 70% 25%, rgba(226,1,45,0.35), transparent 55%),
+      linear-gradient(200deg, #000 0%, var(--t1-grey) 50%, #2a0006 130%);
+  }
+  .panel.t1::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(115deg, rgba(226,1,45,0.06) 0 2px, transparent 2px 34px);
+  }
+
+  .panel-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+    text-align:center;
+    padding:20px;
+    transform:translateY(0);
+    transition:transform .5s ease;
+  }
+  .panel:hover .panel-content{ transform:translateY(-8px); }
+
+  .logo-frame{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:150px;
+    height:150px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(6px);
+    box-shadow:0 0 0 1px rgba(255,255,255,0.12), 0 20px 60px rgba(0,0,0,0.45);
+    transition:transform .5s ease, box-shadow .5s ease;
+  }
+  .panel:hover .logo-frame{ transform:scale(1.08) rotate(-2deg); }
+
+  .t1 .logo-frame img{
+    width:104px; height:104px; object-fit:contain;
+    filter:drop-shadow(0 6px 18px rgba(226,1,45,0.55));
+  }
+
+  .sf-wordmark{
+    font-size:2.6rem;
+    font-weight:800;
+    letter-spacing:-0.5px;
+    color:#fff;
+  }
+  .sf-wordmark span{ color:var(--sf-yellow); }
+
+  .brand-title{
+    font-size:2.1rem;
+    font-weight:800;
+    color:#fff;
+    letter-spacing:1px;
+  }
+  .t1 .brand-title{
+    font-family: Georgia, 'Times New Roman', serif;
+    letter-spacing:3px;
+  }
+  .brand-sub{
+    font-size:0.92rem;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.6);
+  }
+
+  .enter-pill{
+    margin-top:6px;
+    padding:11px 30px;
+    border-radius:999px;
+    font-size:0.85rem;
+    font-weight:700;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    border:1.5px solid rgba(255,255,255,0.55);
+    color:#fff;
+    opacity:0;
+    transform:translateY(6px);
+    transition:opacity .35s ease, transform .35s ease, background .3s ease, color .3s ease;
+  }
+  .panel:hover .enter-pill{ opacity:1; transform:translateY(0); }
+
+  .shopeefood .enter-pill:hover{ background:var(--sf-yellow); border-color:var(--sf-yellow); color:#2b1400; }
+  .t1 .enter-pill:hover{ background:var(--t1-red); border-color:var(--t1-red); color:#fff; }
+
+  .divider{
+    position:absolute;
+    left:50%; top:0;
+    transform:translateX(-50%);
+    width:70px; height:100%;
+    z-index:5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    pointer-events:none;
+  }
+  .divider-badge{
+    width:56px; height:56px;
+    border-radius:50%;
+    background:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800;
+    font-size:0.75rem;
+    letter-spacing:1px;
+    color:#111;
+    box-shadow:0 8px 24px rgba(0,0,0,0.5);
+  }
+
+  .top-caption{
+    position:absolute;
+    top:34px; left:0; right:0;
+    z-index:6;
+    text-align:center;
+    color:rgba(255,255,255,0.85);
+    font-size:0.8rem;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    pointer-events:none;
+  }
+
+  @media (max-width: 720px){
+    .split-wrap{ flex-direction:column; }
+    .split-wrap .panel:hover{ flex:1.15; }
+    .divider{ width:100%; height:60px; left:0; top:50%; transform:translateY(-50%); }
+    .logo-frame{ width:110px; height:110px; }
+    .brand-title,.sf-wordmark{ font-size:1.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-caption">Chọn trải nghiệm</div>
+
+<div class="split-wrap">
+
+  <a href="shopeefood/index2.html" class="panel shopeefood">
+    <div class="panel-content">
+      <div class="logo-frame">
+        <div class="sf-wordmark">Shopee<span>Food</span></div>
+      </div>
+      <div>
+        <div class="brand-title">ShopeeFood</div>
+        <div class="brand-sub">Đặt món · Giao nhanh</div>
+      </div>
+      <div class="enter-pill">Vào trang →</div>
+    </div>
+  </a>
+
+  <div class="divider"><div class="divider-badge">VS</div></div>
+
+  <a href="t1store/index1.html" class="panel t1">
+    <div class="panel-content">
+      <div class="logo-frame">
+        <img src="t1store/images1/Logo.png" alt="T1 Logo">
+      </div>
+      <div>
+        <div class="brand-title">T1 STORE</div>
+        <div class="brand-sub">Official Merchandise</div>
+      </div>
+      <div class="enter-pill">Vào trang →</div>
+    </div>
+  </a>
+
+</div>
+
+</body>
+</html>

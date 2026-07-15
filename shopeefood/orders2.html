@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đơn hàng của tôi — ShopeeFood</title>
+
+<link rel="stylesheet" href="css2/style.css">
+<link rel="stylesheet" href="css2/responsive.css">
+<link rel="stylesheet" href="css2/animation.css">
+<link rel="stylesheet" href="css2/extra.css">
+</head>
+<body>
+
+<div id="loading-screen">
+  <div class="loader-logo">Shopee<span style="color:#FFC400">Food</span></div>
+  <div class="loader-bag">🛍️</div>
+  <div class="loader-bar"></div>
+</div>
+
+<header class="site-header">
+  <div class="header-top">
+    <a href="index2.html" class="logo">Shopee<span class="logo-dot">Food</span></a>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Tìm món ăn, quán ăn yêu thích...">
+      <button aria-label="Tìm kiếm">🔍</button>
+    </div>
+
+    <div class="header-actions">
+      <a href="voucher2.html" class="action-item"><span>🎟️</span><span class="label">Voucher</span></a>
+      <a href="orders2.html" class="action-item"><span>📦</span><span class="label">Đơn hàng</span></a>
+      <a href="cskh2.html" class="action-item"><span>🎧</span><span class="label">CSKH</span></a>
+      <a href="cart2.html" class="action-item cart-icon">🛒<span class="cart-badge">0</span></a>
+      <a href="login2.html" class="action-item" id="auth-link"><span>👤</span><span class="label" id="auth-label">Đăng nhập</span></a>
+    </div>
+
+    <button class="burger-toggle" aria-label="Mở menu">☰</button>
+  </div>
+
+  <nav class="header-nav">
+    <div class="container">
+      <a href="index2.html">Trang chủ</a>
+      <a href="menu2.html">Thực đơn</a>
+      <a href="voucher2.html">Voucher</a>
+      <a href="orders2.html">Đơn hàng</a>
+      <a href="cskh2.html">CSKH</a>
+      <a href="cart2.html">Giỏ hàng</a>
+      <a href="login2.html">Đăng nhập</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <div class="container">
+
+    <div class="orders-page-head">
+      <h2 class="section-title" style="margin-top:30px;">📦 Đơn hàng của tôi</h2>
+      <button type="button" class="btn btn-ghost btn-sm" id="logout-btn" style="display:none;">Đăng xuất</button>
+    </div>
+
+    <!-- Shown only when not logged in -->
+    <div class="member-locked-box" id="login-required-box" style="display:none;">
+      <div class="icon">🔒</div>
+      <p>Vui lòng đăng nhập để xem lịch sử đơn hàng của bạn.</p>
+      <a href="login2.html?redirect=orders2.html" class="btn btn-primary">Đăng nhập ngay</a>
+    </div>
+
+    <!-- Shown when logged in but no orders yet -->
+    <div class="empty-state" id="orders-empty" style="display:none;">
+      <div class="icon">📦</div>
+      <p>Bạn chưa có đơn hàng nào.</p>
+      <a href="menu2.html" class="btn btn-primary">Đặt món ngay</a>
+    </div>
+
+    <!-- Order list -->
+    <div id="orders-list"><!-- injected by orders.js --></div>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-col">
+      <div class="footer-logo">ShopeeFood</div>
+      <p>Nền tảng đặt món ăn trực tuyến nhanh chóng, tiện lợi, nhiều ưu đãi mỗi ngày.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Về ShopeeFood</h4>
+      <a href="#">Giới thiệu</a>
+      <a href="#">Điều khoản dịch vụ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Hỗ trợ khách hàng</h4>
+      <a href="cskh2.html">Trung tâm trợ giúp</a>
+      <a href="cskh2.html#contact-form">Liên hệ</a>
+    </div>
+    <div class="footer-col">
+      <h4>Liên hệ</h4>
+      <p>Email: support@shopeefood.vn</p>
+      <p>Hotline: 1900 1234</p>
+    </div>
+  </div>
+  <div class="footer-bottom container">
+    © 2026 ShopeeFood Demo — Dự án học tập, không phải sản phẩm thương mại thực tế.
+  </div>
+</footer>
+
+<script src="js2/script.js"></script>
+<script src="js2/support-widget.js"></script>
+<script src="js2/search.js"></script>
+<script src="js2/orders.js"></script>
+</body>
+</html>
