@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>T1 SHOP</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        .top-bar {
+            width: 100%;
+            background: black;
+            color: white;
+            padding: 10px 30px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .top-bar a {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .navbar {
+            width: 100%;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            gap: 40px;
+        }
+
+        .logo {
+            width: 70px;
+            height: auto;
+        }
+
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            color: black;
+        }
+
+        .right-tools {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .right-tools input {
+            border: none;
+            border-bottom: 1px solid black;
+            padding: 5px;
+            width: 150px;
+            outline: none;
+        }
+
+        .icon {
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        .banner {
+            width: 100%;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            padding-left: 60px;
+            background: url('images/Banner.png') no-repeat center/cover;
+        }
+
+        .banner h1 {
+            font-size: 85px;
+            font-weight: bold;
+            color: #ffffff;
+            text-shadow: 3px 3px 8px #000;
+        }
+
+        .footer {
+            background: #111;
+            color: #ddd;
+            padding: 40px 60px;
+            display: grid;
+            grid-template-columns: 260px 1fr 1fr;
+            gap: 40px;
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        .footer img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        .footer-column {
+            font-size: 15px;
+            line-height: 28px;
+        }
+
+        .footer-column b {
+            font-size: 18px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .info-box {
+            background: #1b1b1b;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.08);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            background: #0d0d0d;
+            padding: 20px;
+            color: #888;
+            font-size: 14px;
+        }
+
+
+        #overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup-box {
+            width: 380px;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            animation: zoomIn 0.25s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .popup-box h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .popup-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #aaa;
+        }
+
+        .popup-box button {
+            width: 100%;
+            padding: 12px;
+            background: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .switch {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .popup-close {
+            float: right;
+            font-size: 20px;
+            cursor: pointer;
+            margin-top: -10px;
+            margin-right: -5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <span>KOREA, REPUBLIC OF / KRW</span>
+        <span>
+            <a id="loginMenu" onclick="openLogin()">Đăng nhập</a>
+            <a id="registerMenu" onclick="openRegister()">Đăng ký</a>
+
+            <span id="userNameArea" style="display:none;"></span>
+            <a id="logoutBtn" style="display:none;" onclick="logout()">Đăng xuất</a>
+        </span>
+    </div>
+
+    <nav class="navbar">
+        <img src="images/Logo.png" class="logo">
+        <ul class="menu">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="product.html">Sản phẩm</a></li>    
+            <li><a href="sale.html">Sale</a></li>
+            <li><a href="magazine.html">Magazine</a></li>
+            <li><a href="ai.html">Q&A</a></li>
+        </ul>
+        <div class="right-tools">
+            <input type="text" placeholder="SEARCH">
+            <a href="cart.html" class="icon">🛒</a>
+        </div>
+    </nav>
+
+    <div class="banner">
+        <h1>T1 COLLECTION</h1>
+    </div>
+
+    <div class="footer">
+        <div class="footer-column">
+            <img src="images/Logo.png">
+        </div>
+
+        <div class="footer-column">
+            Tên công ty: Công ty TNHH fan T1<br>
+            Địa chỉ: 69/68 Đ. Đặng Thuỳ Trâm, Bình Thạnh, TP.HCM<br>
+            Số đăng ký kinh doanh: 0123456789<br>
+            Nhân viên: Nguyễn Trần Khôi Vĩ, Trần Quán Hy, Vũ Quốc Huy, Châu Gia Bảo
+        </div>
+
+        <div class="footer-column info-box">
+            <b>Liên hệ & Thời gian làm việc</b>
+            • Điện thoại: 028 7105 9999<br>
+            • Gmail: shop@t1.gg<br><br>
+            • Mở cửa: 10:00 ~ 19:00<br>
+            • Nghỉ: 12:00 ~ 13:00<br>
+            • Đóng cửa: T7, CN & ngày lễ
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        COPYRIGHT ⓒ 2025 T1 SHOP. ALL RIGHTS RESERVED.
+    </div>
+
+    <div id="overlay">
+
+        <div class="popup-box" id="loginBox">
+            <span class="popup-close" onclick="closePopup()">✖</span>
+            <h2>Đăng nhập</h2>
+
+            <input type="text" id="loginPhone" placeholder="Số điện thoại">
+            <input type="password" id="loginPass" placeholder="Mật khẩu">
+
+            <button onclick="login()">Đăng nhập</button>
+
+            <p class="switch">
+                Chưa có tài khoản?
+                <a href="#" onclick="showRegister()">Đăng ký</a>
+            </p>
+        </div>
+
+        <div class="popup-box" id="registerBox" style="display:none">
+            <span class="popup-close" onclick="closePopup()">✖</span>
+            <h2>Đăng ký</h2>
+
+            <input type="text" id="regName" placeholder="Tên của bạn">
+            <input type="text" id="regPhone" placeholder="Số điện thoại">
+            <input type="password" id="regPass" placeholder="Mật khẩu">
+
+            <button onclick="register()">Đăng ký</button>
+
+            <p class="switch">
+                Đã có tài khoản?
+                <a href="#" onclick="showLogin()">Đăng nhập</a>
+            </p>
+        </div>
+
+    </div>
+
+    <script>
+
+        function openLogin() {
+            document.getElementById("overlay").style.display = "flex";
+            showLogin();
+        }
+
+        function openRegister() {
+            document.getElementById("overlay").style.display = "flex";
+            showRegister();
+        }
+
+        function closePopup() {
+            document.getElementById("overlay").style.display = "none";
+        }
+
+        function showLogin() {
+            document.getElementById("loginBox").style.display = "block";
+            document.getElementById("registerBox").style.display = "none";
+        }
+
+        function showRegister() {
+            document.getElementById("loginBox").style.display = "none";
+            document.getElementById("registerBox").style.display = "block";
+        }
+
+        function register() {
+            let name = document.getElementById("regName").value;
+            let phone = document.getElementById("regPhone").value;
+            let pass = document.getElementById("regPass").value;
+
+            if (!name || !phone || !pass) {
+                alert("Vui lòng nhập đủ thông tin!");
+                return;
+            }
+
+            let user = { name, phone, pass };
+
+            localStorage.setItem("userData", JSON.stringify(user));
+            alert("Đăng ký thành công!");
+            showLogin();
+        }
+
+        function login() {
+            let phone = document.getElementById("loginPhone").value;
+            let pass = document.getElementById("loginPass").value;
+
+            let user = JSON.parse(localStorage.getItem("userData"));
+
+            if (!user) {
+                alert("Chưa có tài khoản!");
+                return;
+            }
+
+            if (phone === user.phone && pass === user.pass) {
+                localStorage.setItem("isLogin", "true");
+                closePopup();
+                updateHeader();
+            } else {
+                alert("Sai số điện thoại hoặc mật khẩu!");
+            }
+        }
+
+        function updateHeader() {
+            let user = JSON.parse(localStorage.getItem("userData"));
+            let isLogin = localStorage.getItem("isLogin");
+
+            let loginMenu = document.getElementById("loginMenu");
+            let registerMenu = document.getElementById("registerMenu");
+            let userNameArea = document.getElementById("userNameArea");
+            let logoutBtn = document.getElementById("logoutBtn");
+
+            if (isLogin === "true" && user) {
+                loginMenu.style.display = "none";
+                registerMenu.style.display = "none";
+
+                userNameArea.style.display = "inline";
+                userNameArea.innerHTML = "👤 " + user.name;
+
+                logoutBtn.style.display = "inline";
+            } else {
+                loginMenu.style.display = "inline";
+                registerMenu.style.display = "inline";
+                userNameArea.style.display = "none";
+                logoutBtn.style.display = "none";
+            }
+        }
+
+        updateHeader();
+
+        function logout() {
+            localStorage.setItem("isLogin", "false");
+            alert("Đã đăng xuất!");
+            updateHeader();
+        }
+
+    </script>
+
+</body>
+</html>
